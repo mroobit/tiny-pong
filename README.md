@@ -16,7 +16,3 @@ Currently the game is a human player against a naive computer opponent.
 - Opening splash animation
 - Fade from Menu to game
 - Option to play again? (maintain win count across games?)
-
-## Bugs
-
-- Carrying ball to either edge causes ball to align to paddle (expected behavior: ball shift to corner inside grid)
