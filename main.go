@@ -44,12 +44,12 @@ func main() {
 				// assign ball to player who scored
 				if b.loc[0] == -1 {
 					m.score++
-					m.ball = true
-					b.loc[0] = 4
+					m.Get(b)
+					b.loc[0] = 3
 				}
 				if b.loc[0] == 5 {
 					h.score++
-					h.ball = true
+					h.Get(b)
 					b.loc[0] = 1
 				}
 			}
@@ -97,6 +97,7 @@ func main() {
 	// display pixel grid
 
 	for {
+		display.ClearDisplay()
 		for i := 0; i < int(h.score); i++ {
 			display.SetPixel(1, int16(i), microbitmatrix.BrightnessFull)
 		}
@@ -131,15 +132,16 @@ func (p *Player) Move() {
 }
 
 func (p *Player) Carry(b *Ball) {
-	b.loc[1] += p.dir
-	if b.loc[1] == 5 {
-		b.loc[1]--
-		b.dir[1] *= -1
+	if p.loc[1] == 0 || p.loc[1] == 4 {
+		b.dir[1] = p.dir * -1
 	}
-	if b.loc[1] == -1 {
-		b.loc[1]++
-		b.dir[1] *= -1
-	}
+	b.loc[1] += b.dir[1]
+}
+
+func (p *Player) Get(b *Ball) {
+	p.ball = true
+	b.loc[1] = p.loc[1] + p.dir
+	b.dir[1] = p.dir
 }
 
 func (p *Player) Reset() {
@@ -153,7 +155,6 @@ func (p *Player) Score() {
 type Ball struct {
 	loc [2]int16
 	dir [2]int16
-	// held bool
 }
 
 func NewBall() *Ball {
