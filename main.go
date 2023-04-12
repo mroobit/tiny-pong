@@ -40,8 +40,7 @@ func main() {
 				// reset player positions
 				m.loc[1] = 2
 				h.loc[1] = 2
-				// add to score
-				// assign ball to player who scored
+				// add to score, assign ball to player who scored
 				if b.loc[0] == -1 {
 					m.score++
 					m.Get(b)
@@ -54,27 +53,26 @@ func main() {
 				}
 			}
 
-			// move machine player, release ball if machine carrying
-			m.Move()
-			if m.ball == true {
-				m.ball = false
-			}
-
-			// if button b is pressed
-			// release ball
-			if !btb.Get() {
-				h.ball = false
-			}
-
+			// if ball isn't held, move the ball
 			if !m.ball && !h.ball {
-				// move ball
 				b.Move()
 				// if ball hits paddle, reverse both dirs
 				b.Hit(m, h)
 			}
 
-			// if button a is pressed
-			// move human player
+			// move machine player, release ball if machine carrying
+			m.Move()
+			if m.ball == true {
+				m.Carry(b)
+				m.ball = false
+			}
+
+			// if button b is pressed, release ball
+			if !btb.Get() {
+				h.ball = false
+			}
+
+			// if button a is pressed, move human player
 			if !bta.Get() {
 				h.Move()
 				if h.ball == true {
@@ -82,14 +80,13 @@ func main() {
 				}
 			}
 
-			// clear display
-			// set pixelsfor both paddles and ball
-			// display pixel grid
+			// clear display, set pixelsfor both paddles and ball
 			display.ClearDisplay()
 			display.SetPixel(h.loc[0], h.loc[1], microbitmatrix.BrightnessFull)
 			display.SetPixel(m.loc[0], m.loc[1], microbitmatrix.BrightnessFull)
 			display.SetPixel(b.loc[0], b.loc[1], microbitmatrix.BrightnessFull)
 		}
+		// display pixel grid
 		display.Display()
 	}
 	// after loop
