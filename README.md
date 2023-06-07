@@ -8,7 +8,7 @@ Tiny Pong for micro:bit-v2. There is a [code walkthrough](https://shannondybvig.
 To flash Tiny Tetris to your micro:bit-v2, type the following from inside the directory:
 
 ```
-tinygo build -o=/run/media/sdybvig/MICROBIT/flash.hex -target=microbit-v2 main.go
+tinygo build -o=/run/media/{USERNAME}/MICROBIT/flash.hex -target=microbit-v2 main.go
 ```
 
 ## Status
