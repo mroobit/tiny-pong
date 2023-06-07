@@ -3,6 +3,14 @@ Tiny Pong for micro:bit-v2. There is a [code walkthrough](https://shannondybvig.
 
 ![tinypong-preview](https://user-images.githubusercontent.com/69212809/231538507-e296ec65-4b80-40b6-9a70-be1418902aba.gif)
 
+## Flash Tiny Pong to the micro:bit-v2
+
+To flash Tiny Tetris to your micro:bit-v2, type the following from inside the directory:
+
+```
+tinygo build -o=/run/media/sdybvig/MICROBIT/flash.hex -target=microbit-v2 main.go
+```
+
 ## Status
 
 Currently the game is a human player against a naive computer opponent.
