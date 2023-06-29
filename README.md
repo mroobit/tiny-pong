@@ -1,4 +1,13 @@
 # Tiny Pong
+<p>
+  <a href="https://golang.org/doc/go1.20">
+    <img alt="Go" src="https://img.shields.io/github/go-mod/go-version/mroobit/tiny-pong?color=00ADD8&style=flat"
+  </a> 
+  <a href="https://opensource.org/licenses/MIT">
+    <img alt="License" src="https://img.shields.io/github/license/mroobit/tiny-pong?color=440000&style=flat"
+  </a>
+</p>
+
 Tiny Pong for micro:bit-v2. There is a [code walkthrough](https://shannondybvig.com/posts/tiny-pong-on-microbit-v2/) on my website.
 
 ![tinypong-preview](https://user-images.githubusercontent.com/69212809/231538507-e296ec65-4b80-40b6-9a70-be1418902aba.gif)
